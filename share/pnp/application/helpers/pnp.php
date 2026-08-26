@@ -100,7 +100,7 @@ class pnp_Core {
 	    if($value === ''){
 		continue;
 	    }
-	    $uri .= $key."=".urlencode($value ?? '')."&";
+	    $uri .= $key."=".urlencode($value === null ? '' : $value)."&";
         }
         return rtrim($uri,"&");
     }

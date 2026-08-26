@@ -1,0 +1,40 @@
+name: PHP syntax compatibility
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  php-syntax:
+    name: PHP ${{ matrix.php-version }} syntax check
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php-version:
+          - '5.6'
+          - '8.2'
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Set up PHP ${{ matrix.php-version }}
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
+          coverage: none
+          tools: none
+        env:
+          fail-fast: true
+
+      - name: Verify PHP version
+        env:
+          EXPECTED_PHP_VERSION: ${{ matrix.php-version }}
+        run: >-
+          php -r 'exit(PHP_MAJOR_VERSION . "." . PHP_MINOR_VERSION === getenv("EXPECTED_PHP_VERSION") ? 0 : 1);'
+
+      - name: Check PHP ${{ matrix.php-version }} syntax compatibility
+        run: git ls-files -z '*.php' '*.php.in' | xargs -0 -n 1 php -l

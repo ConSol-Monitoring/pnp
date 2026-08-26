@@ -186,3 +186,8 @@ fullinstall: install install-webconf install-config install-init
 
 dist:
 	git archive --format=tar.gz -9 --prefix=$(NAME)-$(VERSION)/ HEAD > $(NAME)-$(VERSION).tar.gz
+
+test: check
+
+check:
+	git ls-files -z '*.php' '*.php.in' | xargs -0 -n 1 php -l
