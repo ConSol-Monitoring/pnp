@@ -1,5 +1,8 @@
 <?php defined('SYSPATH') OR die('No direct access allowed.');
 
+// E_STRICT is deprecated starting with php 8.4
+$E_STRICT = PHP_VERSION_ID < 80400 ? E_STRICT : 2048;
+
 $lang = array
 (
 	E_KOHANA             => array( 1, 'Error del Framework', 'Revisa la documentación de Kohana para información sobre el siguiente error.'),
@@ -11,6 +14,6 @@ $lang = array
 	E_PARSE              => array( 1, 'Error de Syntaxis', ''),
 	E_WARNING            => array( 1, 'Advertencia', ''),
 	E_USER_WARNING       => array( 1, 'Advertencia', ''),
-	E_STRICT             => array( 2, 'Strict Mode Error', ''),
+	$E_STRICT            => array( 2, 'Strict Mode Error', ''),
 	E_NOTICE             => array( 2, 'Runtime Message', ''),
 );
