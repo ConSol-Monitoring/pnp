@@ -1,7 +1,7 @@
 <?php
 #
 # Copyright (c) 2009 Gerhard Lausser (gerhard.lausser@consol.de)
-# Plugin: check_mysql_health (http://www.consol.com/opensource/nagios/check-mysql-health)
+# Plugin: check_mysql_health (https://omd.consol.de/docs/plugins/check_mysql_health/)
 # Release 1.0 2009-03-02
 #
 # This is a template for the visualisation addon PNP (http://www.pnp4nagios.org)

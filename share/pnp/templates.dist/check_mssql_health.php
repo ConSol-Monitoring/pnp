@@ -2,7 +2,7 @@
 #
 # Copyright (c) 2009-2011 Gerhard Lausser (gerhard.lausser@consol.de)
 # Copyright (c) 2011 Joerg Linge (support@pnp4nagios.org)
-# Plugin: check_mysql_health (http://www.consol.com/opensource/nagios/check-mysql-health)
+# Plugin: check_mssql_health (https://omd.consol.de/docs/plugins/check_mssql_health/)
 #
 
 $defcnt = 1;
